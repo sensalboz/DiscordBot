@@ -1,8 +1,8 @@
+const { Client } = require('discord.js')
 require('dotenv').config()
 
 const TOKEN = process.env.DISCORD_TOKEN_ID
-
-const { Client } = require('discord.js')
+const PREFIX = '$'
 
 const client = new Client()
 
@@ -11,8 +11,10 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-	if (msg.content === 'ping') {
-		msg.reply('pong')
+	if (PREFIX) {
+		if (msg.content === 'ping') {
+			msg.reply('pong')
+		}
 	}
 })
 
