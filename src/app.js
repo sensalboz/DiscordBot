@@ -2,21 +2,23 @@ const { Client } = require('discord.js')
 require('dotenv').config()
 
 const TOKEN = process.env.DISCORD_TOKEN_ID
-const PREFIX = '$'
+const PREFIX = process.env.PREFIX
 
 const client = new Client()
 
-client.on('ready', () => {
+client.once('ready', () => {
 	console.log(`this is a ${client.user.tag}`)
 })
 
 client.on('message', msg => {
-	if (msg.content === 'ping') {
-		msg.reply('pong')
-	}
 
-	if (msg.content === 'add') {
-		msg.reply(' babani esekler siksin')
+	const { me, owner} = msg.guild; 
+
+
+	if (msg.content.startsWith(`${PREFIX}test`)) {
+		msg.channel.send('this is about aus ',me, owner)
+
+		msg.
 	}
 })
 
