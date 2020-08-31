@@ -11,10 +11,12 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-	if (PREFIX) {
-		if (msg.content === 'ping') {
-			msg.reply('pong')
-		}
+	if (msg.content === 'ping') {
+		msg.reply('pong')
+	}
+
+	if (msg.content === 'add') {
+		msg.reply(' babani esekler siksin')
 	}
 })
 
