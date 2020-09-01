@@ -10,15 +10,22 @@ client.once('ready', () => {
 	console.log(`this is a ${client.user.tag}`)
 })
 
-client.on('message', msg => {
+client.on('message', message => {
+	if (!message.content.startsWith(PREFIX) || message.author.bot) return
+	const args = message.content.slice(PREFIX.length).trim().split(/ +/)
 
-	const { me, owner} = msg.guild; 
+	const command = args.shift().toLowerCase()
 
+	// console.log(command)
 
-	if (msg.content.startsWith(`${PREFIX}test`)) {
-		msg.channel.send('this is about aus ',me, owner)
+	if (command === 'help') {
+		message.reply('this is a google')
+	} else if (command === 'kick') {
+		const taggedUser = message.mentions.users
 
-		msg.
+		console.log(taggedUser)
+
+		// message.channel.send(`thsis is agoogle tag${taggedUser.username}`)
 	}
 })
 
